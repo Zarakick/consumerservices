@@ -1,0 +1,15 @@
+# https://www.confluent.io/blog/apache-kafka-spring-boot-application/  Como configurar el proyecto springboot para consumir kafka
+# https://enmilocalfunciona.io/aprendiendo-apache-kafka-parte-4/  Como configurar kafka y zookeeper
+server: 
+  port: 9000
+spring:
+   kafka:
+     bootstrap-servers: 172.36.1.31:9092, 172.36.1.32:9092, 172.36.1.33:9092      
+     consumer:
+        # bootstrap-servers: 172.36.1.31:9092, 172.36.1.32:9092, 172.36.1.33:9092
+        group-id: group_id
+        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+   logging:
+      file: logging.file
